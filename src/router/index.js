@@ -2,8 +2,6 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/Home/HomeView.vue'
 import SettingsView from '../views/Settings/SettingsView.vue'
 
-x = 123;
-
 const routes = [
   {
     path: '/',
@@ -28,6 +26,18 @@ const routes = [
     meta: {
       requiresAuth: false
     }
+  },
+  {
+    path: '/viewpdf',
+    name: 'viewpdf',
+    component: () => import('@/views/Home/ViewPDF.vue'),
+    meta: {
+      requiresAuth: false
+    },
+    props: (route) => ({
+      task: route.query.task,
+    })
+
   }
 ]
 
